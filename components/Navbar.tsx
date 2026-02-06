@@ -28,12 +28,13 @@ export default function Navbar() {
     >
       {/* Nom raccourci pour mobile */}
       <h1 className="text-sm md:text-lg font-semibold text-white whitespace-nowrap">
-        M. M. Maktar
+        Mbengue. M.M
       </h1>
 
       {/* Hamburger */}
       <button
-        className="md:hidden text-white p-2"
+        className="md:hidden text-white p-2
+         bg-blue-600 rounded-lg shadow-md"
         onClick={() => setOpen(!open)}
       >
         <svg width="26" height="26" fill="currentColor">
