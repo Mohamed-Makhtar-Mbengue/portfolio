@@ -1,8 +1,18 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  const links = [
+    { label: "Accueil", href: "/" },
+    { label: "Compétences & Expériences", href: "/competences-experiences" },
+    { label: "Projets", href: "/projects" },
+    { label: "Contact", href: "/contact" },
+  ];
+
   return (
     <nav
       className="
@@ -17,16 +27,23 @@ export default function Navbar() {
       "
     >
       {/* Branding */}
-      <h1 className="text-lg font-semibold text-white">Mbengue Mohamed Maktar</h1>
+      <h1 className="text-sm md:text-lg font-semibold text-white">
+        Mbengue Mohamed Maktar
+      </h1>
 
-      {/* Navigation */}
-      <div className="flex gap-6 text-sm">
-        {[
-          { label: "Accueil", href: "/" },
-          { label: "Compétences & Expériences", href: "/competences-experiences" },
-          { label: "Projets", href: "/projects" },
-          { label: "Contact", href: "/contact" },
-        ].map((item) => (
+      
+      <button
+        className="md:hidden text-white"
+        onClick={() => setOpen(!open)}
+      >
+        <svg width="28" height="28" fill="currentColor">
+          <path d="M4 7h20M4 14h20M4 21h20" />
+        </svg>
+      </button>
+
+      {/* Desktop menu */}
+      <div className="hidden md:flex gap-6 text-sm">
+        {links.map((item) => (
           <Link
             key={item.href}
             href={item.href}
@@ -46,6 +63,29 @@ export default function Navbar() {
           </Link>
         ))}
       </div>
+
+      {/* Mobile dropdown */}
+      {open && (
+        <div
+          className="
+            absolute top-full mt-3 left-0 w-full
+            bg-gray-900/90 backdrop-blur-xl
+            border border-white/10 rounded-xl
+            flex flex-col gap-4 p-4 md:hidden
+          "
+        >
+          {links.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              className="text-gray-300 font-medium hover:text-white transition"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      )}
     </nav>
   );
 }
