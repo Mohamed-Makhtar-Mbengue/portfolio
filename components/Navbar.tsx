@@ -22,8 +22,8 @@ export default function Navbar() {
         border border-white/10
         rounded-xl shadow-lg
         z-50
-        px-4 py-2
-        flex items-center justify-between
+        px-3 py-2
+        flex items-center justify-between overflow-visible
       "
     >
       {/* Nom raccourci pour mobile */}
@@ -33,7 +33,7 @@ export default function Navbar() {
 
       {/* Hamburger */}
       <button
-        className="md:hidden text-white"
+        className="md:hidden text-white p-2"
         onClick={() => setOpen(!open)}
       >
         <svg width="26" height="26" fill="currentColor">
