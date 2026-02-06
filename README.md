@@ -7,3 +7,4 @@ Next.js 15 + Tailwind CSS + TypeScript + Framer Motion + Dark Mode + API GitHub.
 ```bash
 npm install
 npm run dev
+
