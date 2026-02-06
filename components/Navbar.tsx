@@ -17,17 +17,18 @@ export default function Navbar() {
     <nav
       className="
         fixed top-4 left-1/2 -translate-x-1/2
-        w-[90%] md:w-[70%]
+        w-full mx-2 md:w-[70%]
         bg-gray-900/60 backdrop-blur-xl
         border border-white/10
         rounded-2xl shadow-lg
         z-50
-        px-6 py-3
+        px-4 py-3
         flex items-center justify-between
+        overflow-hidden
       "
     >
       {/* Branding */}
-      <h1 className="text-sm md:text-lg font-semibold text-white">
+      <h1 className="text-sm md:text-lg font-semibold text-white whitespace-nowrap">
         Mbengue Mohamed Maktar
       </h1>
 
